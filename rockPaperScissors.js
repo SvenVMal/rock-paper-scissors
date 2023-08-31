@@ -72,8 +72,6 @@ function game(choice) {
         let playerSelection = choice;
         let computerSelection = getComputerChoice();
         let play = playRound(playerSelection, computerSelection)
-        console.log(play);
-        //gameInfo.textContent = play;
         updateScoresMessage(play);
         updateChoice(playerSelection, computerSelection);
         updateScores();

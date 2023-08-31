@@ -1,7 +1,29 @@
-.score {
+button {
     display: flex;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
-.score-box {
-    flex: 1;
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.choice {
+    font-size: 80px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+}
+
+.game-outcome {
+    display: flex;
+    justify-content: center;
 }
