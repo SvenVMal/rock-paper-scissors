@@ -1,12 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 
-
+const gameInfo = document.getElementById('game-info');
+const gameMsg = document.getElementById('game-msg');
+const getComputerScore = document.getElementById('computer-score')
+const getPlayerScore = document.getElementById('player-score')
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
-const lizardBtn = document.getElementById('lizardBtn');
-const spockBtn = document.getElementById('spockBtn');
 
 rockBtn.addEventListener('click', () => {
     game("paper");
@@ -28,8 +29,13 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    let testMsg = [];
+
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        winner = "It's a tie!";
+        winnerInfo = "No points!";
+        testMsg.push(winner,winnerInfo);
+        //return "It's a tie!";
     }
     else if (
         playerSelection == "rock" && computerSelection == "scissors" ||
@@ -37,12 +43,21 @@ function playRound(playerSelection, computerSelection) {
         playerSelection == "scissors" && computerSelection == "paper") {
         
         playerScore += 1;
-        return "You win! " + playerSelection + " beats " + computerSelection;
+        winner = "You win!";
+        winnerInfo = playerSelection + " beats " + computerSelection;
+        testMsg.push(winner,winnerInfo);
+        //return "You win! " + playerSelection + " beats " + computerSelection;
     }
     else {
         computerScore += 1;
-        return "You lose! " + computerSelection + " beats " + playerSelection;
+        winner = "You lose!";
+        winnerInfo = computerSelection + " beats " + playerSelection;
+        testMsg.push(winner,winnerInfo);
+        //return "You lose! " + computerSelection + " beats " + playerSelection;
     }
+
+    return testMsg;
+    
 }
 
 function gameOver() {
@@ -54,5 +69,20 @@ function gameOver() {
 function game(choice) {
         let playerSelection = choice;
         let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        let play = playRound(playerSelection, computerSelection)
+        console.log(play);
+        //gameInfo.textContent = play;
+        updateScoresMessage(play);
+        updateScores();
+
+}
+
+function updateScores() {
+    getComputerScore.textContent = "Computer score: " + computerScore;
+    getPlayerScore.textContent = "Your score: " + playerScore;
+}
+
+function updateScoresMessage(play) {
+    gameInfo.textContent = play[0];
+    gameMsg.textContent = play[1];
 }
