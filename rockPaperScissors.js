@@ -3,6 +3,8 @@ let computerScore = 0;
 
 const gameInfo = document.getElementById('game-info');
 const gameMsg = document.getElementById('game-msg');
+const playerChoice = document.getElementById('player-choice');
+const computerChoice = document.getElementById('computer-choice');
 const getComputerScore = document.getElementById('computer-score')
 const getPlayerScore = document.getElementById('player-score')
 const rockBtn = document.getElementById('rockBtn');
@@ -73,6 +75,7 @@ function game(choice) {
         console.log(play);
         //gameInfo.textContent = play;
         updateScoresMessage(play);
+        updateChoice(playerSelection, computerSelection);
         updateScores();
 
 }
@@ -80,6 +83,11 @@ function game(choice) {
 function updateScores() {
     getComputerScore.textContent = "Computer score: " + computerScore;
     getPlayerScore.textContent = "Your score: " + playerScore;
+}
+
+function updateChoice(player, computer) {
+    playerChoice.textContent = "Your choice: " + player;
+    computerChoice.textContent = "Computer choice: " + computer;
 }
 
 function updateScoresMessage(play) {
