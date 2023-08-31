@@ -1,13 +1,7 @@
-body {
-    background-color: rgb(32, 50, 66);
-    font-size: large;
-    color: azure;
+.score {
+    display: flex;
 }
 
-button {
-    height: 100px;
-    width: 100px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(72, 90, 105);
+.score-box {
+    flex: 1;
 }
