@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock - Paper - Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
         <div class="game-outcome">
             <p id="game-info">You lost!</p>
-            <p>Rock beats scissors</p>
+            <p id="game-msg">Rock beats scissors</p>
         </div>
         <div class="score">
-            <p>Your score:</p>
-            <p>Computer score:</p>
+            <div class="score-box">
+                <p id="computer-choice">Your choice:</p>
+                <p id="player-score">Your score:</p>
+            </div>
+            <div class="score-box">
+                <p id="player-choice">Computer choice:</p>
+                <p id="computer-score">Computer score:</p>
+            </div>
         </div>
         <div class="buttons">
             <button id="rockBtn">Rock</button>
